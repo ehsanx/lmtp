@@ -219,6 +219,13 @@
 <p>We can now estimate the effect of our treatment policy, <code>d</code>. In this example, we’ll use the cross-validated TML estimator with 10 folds.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit">
 <span class="fu"><a href="reference/lmtp_tmle.html">lmtp_tmle</a></span>(<span class="kw">sim_t4</span>, <span class="kw">a</span>, <span class="st">"Y"</span>, time_vary = <span class="kw">time_varying</span>, k = <span class="fl">0</span>, shift = <span class="kw">policy</span>, folds = <span class="fl">10</span>)
+<span class="co">#&gt; LMTP Estimator: TMLE</span>
+<span class="co">#&gt;    Trt. Policy: (policy)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Population intervention effect</span>
+<span class="co">#&gt;       Estimate: 0.2598</span>
+<span class="co">#&gt;     Std. error: 0.0188</span>
+<span class="co">#&gt;         95% CI: (0.2228, 0.2967)</span>
 </pre></div>
 </div>
 <div id="similiar-implementations" class="section level2">
