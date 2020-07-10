@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Time To Event Last Outcome Carried Forward — event_locf • lmtp</title>
+<title>Time To Event Last Outcome censarried Forward — event_locf • lmtp</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Time To Event Last Outcome Carried Forward — event_locf" />
+<meta property="og:title" content="Time To Event Last Outcome censarried Forward — event_locf" />
 <meta property="og:description" content="A helper function to prepare survival data for use with LMTP estimators
 by imputing outcome nodes using last outcome carried forward when an observation
 experiences the event before the end-of-follow-up." />
@@ -74,7 +74,7 @@ experiences the event before the end-of-follow-up." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lmtp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.91</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
       </span>
     </div>
 
@@ -97,7 +97,7 @@ experiences the event before the end-of-follow-up." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/intro-lmtp.html">Getting Started with LMTP</a>
+      <a href="../articles/articles/intro-lmtp.html">Getting Started with LMTP</a>
     </li>
   </ul>
 </li>
@@ -117,7 +117,7 @@ experiences the event before the end-of-follow-up." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Time To Event Last Outcome Carried Forward</h1>
+    <h1>Time To Event Last Outcome censarried Forward</h1>
     
     <div class="hidden name"><code>event_locf.Rd</code></div>
     </div>
@@ -128,7 +128,7 @@ by imputing outcome nodes using last outcome carried forward when an observation
 experiences the event before the end-of-follow-up.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>event_locf</span>(<span class='no'>data</span>, <span class='no'>outcomes</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/lmtp/man/event_locf.html'>event_locf</a></span>(<span class='kw'>data</span>, <span class='kw'>outcomes</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -149,7 +149,7 @@ experiences the event before the end-of-follow-up.</p>
 experienced an event at any previous time point.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>event_locf</span>(<span class='no'>sim_point_surv</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Y."</span>, <span class='fl'>0</span>:<span class='fl'>6</span>)))</div><div class='output co'>#&gt;      W1 W2 trt Y.0 C.0 Y.1 C.1 Y.2 C.2 Y.3 C.3 Y.4 C.4 Y.5 C.5 Y.6
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/lmtp/man/event_locf.html'>event_locf</a></span>(<span class='kw'>sim_point_surv</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"Y."</span>, <span class='fl'>0</span><span class='op'>:</span><span class='fl'>6</span>)))</div><div class='output co'>#&gt;      W1 W2 trt Y.0 C.0 Y.1 C.1 Y.2 C.2 Y.3 C.3 Y.4 C.4 Y.5 C.5 Y.6
 #&gt; 1     0  0   0   0   1   0   1   0   1   0   0  NA   0  NA   0  NA
 #&gt; 2     0  1   1   0   1   0   1   0   1   0   0  NA   0  NA   0  NA
 #&gt; 3     1  1   1   0   1   0   1   0   1   0   1   0   1   0   0  NA
