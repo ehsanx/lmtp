@@ -236,8 +236,8 @@ will be bounded by. The default is 1e-5, bounding predictions by 1e-5 and 0.9999
 <dt>theta</dt><dd><p>The estimated population LMTP effect.</p></dd>
 <dt>standard_error</dt><dd><p>The estimated standard error of the LMTP effect.</p></dd>
 <dt>low</dt><dd><p>Lower bound of the 95% confidence interval of the LMTP effect.</p></dd>
-<dt>high</dt><dd><p>Upper bound of the 95% confidene interval of the LMTP effect.</p></dd>
-<dt>eif</dt><dd><p>The estimated, uncentered, influence function of the estimate.</p></dd>
+<dt>high</dt><dd><p>Upper bound of the 95% confidence interval of the LMTP effect.</p></dd>
+<dt>eif</dt><dd><p>The estimated, un-centered, influence function of the estimate.</p></dd>
 <dt>shift</dt><dd><p>The shift function specifying the treatment policy of interest.</p></dd>
 <dt>outcome_reg</dt><dd><p>An n x Tau + 1 matrix of outcome regression predictions.
 The mean of the first column is used for calculating theta.</p></dd>
@@ -289,7 +289,7 @@ ensemble weights at each time-point for each fold for the propensity.</p></dd>
 #&gt; 3  3   1   0   1   3   1   2   1   1 1
 #&gt; 4  4   1   0   0   3   1   3   1   2 0
 #&gt; 5  5   3   3   1   1   0   1   1   2 0
-#&gt; 6  6   1   0   0   2   0   3   1   4 0</div><div class='input'>  <span class='co'># specifying treament variables</span>
+#&gt; 6  6   1   0   0   2   0   3   1   4 0</div><div class='input'>  <span class='co'># specifying treatment variables</span>
   <span class='kw'>a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A_1"</span>, <span class='st'>"A_2"</span>, <span class='st'>"A_3"</span>, <span class='st'>"A_4"</span>)
   <span class='co'># specifying time varying covariates</span>
   <span class='kw'>tv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"L_1"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"L_2"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"L_3"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"L_4"</span>))
@@ -323,7 +323,7 @@ ensemble weights at each time-point for each fold for the propensity.</p></dd>
     (<span class='kw'>data</span>[[<span class='kw'>trt</span>]] <span class='op'>-</span> <span class='fl'>1</span>) <span class='op'>*</span> (<span class='kw'>data</span>[[<span class='kw'>trt</span>]] <span class='op'>-</span> <span class='fl'>1</span> <span class='op'>&gt;=</span> <span class='fl'>1</span>) <span class='op'>+</span> <span class='kw'>data</span>[[<span class='kw'>trt</span>]] <span class='op'>*</span> (<span class='kw'>data</span>[[<span class='kw'>trt</span>]] <span class='op'>-</span> <span class='fl'>1</span> <span class='op'>&lt;</span> <span class='fl'>1</span>)
   }
 
-  <span class='co'># creating a dynamic mtp that applies the shift function</span>
+  <span class='co'># creating a dynamic MTP that applies the shift function</span>
   <span class='co'># but also depends on history and the current time</span>
   <span class='kw'>dynamic_mtp</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>data</span>, <span class='kw'>trt</span>) {
     <span class='co'>if</span> (<span class='kw'>trt</span> <span class='op'>==</span> <span class='st'>"A_1"</span>) {
