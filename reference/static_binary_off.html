@@ -73,7 +73,7 @@ Used to estimate the population intervention effect when all treatment variables
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lmtp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5</span>
       </span>
     </div>
 
@@ -126,7 +126,7 @@ Used to estimate the population intervention effect when all treatment variables
 Used to estimate the population intervention effect when all treatment variables are set to 0.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/lmtp/man/static_binary_off.html'>static_binary_off</a></span>(<span class='kw'>data</span>, <span class='kw'>trt</span>)</pre>
+    <pre class="usage"><span class='fu'>static_binary_off</span>(<span class='kw'>data</span>, <span class='kw'>trt</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,17 +146,18 @@ Used to estimate the population intervention effect when all treatment variables
     <p>A dataframe with all treatment nodes set to 0.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/lmtp/man/lmtp_tmle.html'>lmtp_tmle()</a></code>, <code><a href='https://rdrr.io/pkg/lmtp/man/lmtp_sdr.html'>lmtp_sdr()</a></code>, <code><a href='https://rdrr.io/pkg/lmtp/man/lmtp_sub.html'>lmtp_sub()</a></code>, <code><a href='https://rdrr.io/pkg/lmtp/man/lmtp_ipw.html'>lmtp_ipw()</a></code></p></div>
+    <div class='dont-index'><p><code><a href='lmtp_tmle.html'>lmtp_tmle()</a></code>, <code><a href='lmtp_sdr.html'>lmtp_sdr()</a></code>, <code><a href='lmtp_sub.html'>lmtp_sub()</a></code>, <code><a href='lmtp_ipw.html'>lmtp_ipw()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"iptwExWide"</span>, package = <span class='st'>"twang"</span>)
 <span class='kw'>a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"tx"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>)
 <span class='kw'>baseline</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"gender"</span>, <span class='st'>"age"</span>)
 <span class='kw'>tv</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"use0"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"use1"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"use2"</span>))
-<span class='fu'><a href='https://rdrr.io/pkg/lmtp/man/lmtp_sdr.html'>lmtp_sdr</a></span>(<span class='kw'>iptwExWide</span>, <span class='kw'>a</span>, <span class='st'>"outcome"</span>, baseline = <span class='kw'>baseline</span>, time_vary = <span class='kw'>tv</span>,
+<span class='fu'><a href='lmtp_sdr.html'>lmtp_sdr</a></span>(<span class='kw'>iptwExWide</span>, <span class='kw'>a</span>, <span class='st'>"outcome"</span>, baseline = <span class='kw'>baseline</span>, time_vary = <span class='kw'>tv</span>,
          shift = <span class='kw'>static_binary_off</span>, outcome_type = <span class='st'>"continuous"</span>, folds = <span class='fl'>2</span>)
-}</div></pre>
+</div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'><span style='font-weight: bold;'>LMTP Estimator</span><span>: SDR</span></div><div class='output co'>#&gt;    </div><div class='output co'>#&gt; <span class='message'></span><span style='font-weight: bold;'>Trt. Policy</span><span>: </span><span style='color: #0000BB;font-style: italic;'>(static_binary_off)</span><span></span></div><div class='output co'>#&gt; </div><div class='output co'>#&gt; <span class='message'></span><span style='font-weight: bold;'>Population intervention effect</span><span></span></div><div class='output co'>#&gt;       </div><div class='output co'>#&gt; <span class='message'></span><span style='font-weight: bold;'>Estimate</span><span>: 0.2364</span></div><div class='output co'>#&gt;     </div><div class='output co'>#&gt; <span class='message'></span><span style='font-weight: bold;'>Std. error</span><span>: 0.0567</span></div><div class='output co'>#&gt;         </div><div class='output co'>#&gt; <span class='message'></span><span style='font-weight: bold;'>95% CI</span><span>: (0.1253, 0.3476)</span></div><div class='output co'>#&gt; </div><div class='input'><span class='co'># }</span>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
