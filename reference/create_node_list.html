@@ -75,19 +75,13 @@ before actually performing the estimation procedure." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">lmtp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.6</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
@@ -130,7 +124,7 @@ it is provided so the analyst can confirm how estimators will use variables
 before actually performing the estimation procedure.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>create_node_list</span>(<span class='kw'>trt</span>, <span class='kw'>tau</span>, time_vary = <span class='kw'>NULL</span>, baseline = <span class='kw'>NULL</span>, k = <span class='fl'>Inf</span>)</pre>
+    <pre class="usage"><span class='fu'>create_node_list</span><span class='op'>(</span><span class='va'>trt</span>, <span class='va'>tau</span>, time_vary <span class='op'>=</span> <span class='cn'>NULL</span>, baseline <span class='op'>=</span> <span class='cn'>NULL</span>, k <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -168,12 +162,12 @@ all time points.</p></td>
 to be used for estimation at that given time point.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A_1"</span>, <span class='st'>"A_2"</span>, <span class='st'>"A_3"</span>, <span class='st'>"A_4"</span>)
-<span class='kw'>bs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"W_1"</span>, <span class='st'>"W_2"</span>)
-<span class='kw'>time_vary</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"L_1"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"L_2"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"L_3"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"L_4"</span>))
+    <pre class="examples"><div class='input'><span class='va'>a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"A_1"</span>, <span class='st'>"A_2"</span>, <span class='st'>"A_3"</span>, <span class='st'>"A_4"</span><span class='op'>)</span>
+<span class='va'>bs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"W_1"</span>, <span class='st'>"W_2"</span><span class='op'>)</span>
+<span class='va'>time_vary</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"L_1"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"L_2"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"L_3"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"L_4"</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># assuming no Markov property</span>
-<span class='fu'>create_node_list</span>(<span class='kw'>a</span>, <span class='fl'>4</span>, <span class='kw'>time_vary</span>, <span class='kw'>bs</span>, k = <span class='fl'>Inf</span>)
+<span class='fu'>create_node_list</span><span class='op'>(</span><span class='va'>a</span>, <span class='fl'>4</span>, <span class='va'>time_vary</span>, <span class='va'>bs</span>, k <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $trt
 #&gt; $trt[[1]]
 #&gt; [1] "W_1" "W_2" "L_1" "A_1"
@@ -203,7 +197,7 @@ to be used for estimation at that given time point.</p>
 #&gt; 
 #&gt; </div><div class='input'>
 <span class='co'># assuming a Markov property</span>
-<span class='fu'>create_node_list</span>(<span class='kw'>a</span>, <span class='fl'>4</span>, <span class='kw'>time_vary</span>, <span class='kw'>bs</span>, k = <span class='fl'>0</span>)
+<span class='fu'>create_node_list</span><span class='op'>(</span><span class='va'>a</span>, <span class='fl'>4</span>, <span class='va'>time_vary</span>, <span class='va'>bs</span>, k <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $trt
 #&gt; $trt[[1]]
 #&gt; [1] "W_1" "W_2" "L_1" "A_1"
@@ -247,7 +241,7 @@ to be used for estimation at that given time point.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
