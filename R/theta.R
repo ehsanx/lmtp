@@ -82,7 +82,7 @@ theta_dr <- function(eta) {
   # inference
   clusters <- split(inflnce, eta$id)
   j <- length(clusters)
-  se <- sqrt(var(vapply(clusters, function(x) sum(x), 1)) / j)
+  se <- sqrt(var(vapply(clusters, function(x) mean(x), 1)) / j)
   ci_low  <- theta - (qnorm(0.975) * se)
   ci_high <- theta + (qnorm(0.975) * se)
 
